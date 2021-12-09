@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <report id="action_conf_sale_order" string="Sale Invoic" model="account.move" report_type="qweb-pdf" file="pratice.action_sale_invoice" name="pratice.action_sale_invoice" print_report_name="'SALE INVOICE - %s' % (object.name)" />
+
+    <template id="action_sale_invoice">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <table class="table table-bordered table-sm">
+                            <thead>
+                                <tr style="height:4px; font-size: 13px;">
+                                    <th class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>GSTIN :</strong>
+                                    </th>
+                                    <th class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>STATE CODE :</strong>
+                                    </th>
+                                    <th class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>PAN :</strong>
+                                    </th>
+                                    <th class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>STATE</strong>
+                                        :
+                                        <span t-field="o.company_id.state_id" />
+                                    </th>
+                                    <th class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+
+                                    </th>
+                                    <th class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>CIN :</strong>
+                                    </th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="table-borderless" style="height:4px; font-size: 13px;">
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Mode of Transport</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Vendor Code</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Invoice No.</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+
+                                </tr>
+                                <tr class="table-borderless" style="height:4px; font-size: 13px;">
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Transporter</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Terms of Payment</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Date</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+
+                                </tr>
+                                <tr class="table-borderless" style="height:4px; font-size: 13px;">
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Booked</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Place Of Supply</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>SO No.</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+
+                                </tr>
+                                <tr class="table-borderless" style="height:4px; font-size: 13px;">
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Doc. No</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Date Of Supply</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>SO Date</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+
+                                </tr>
+                                <tr class="table-borderless" style="height:4px; font-size: 13px;">
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Vehicle</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>Time</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;"></td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;"></td>
+                                </tr>
+                                <tr class="table-borderless" style="height:4px; font-size: 13px;">
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                        <strong>EWay Bill</strong>
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;">
+                                    :
+                                    </td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;"></td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;"></td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;"></td>
+                                    <td class="text-left" style="padding-top:0px; padding-bottom:0px; margin:0px; border-left: 0px;border-right: 0px; border-bottom: 0px;  border-top: 0px; width:15%;"></td>
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <!-- <table class="table-sm table"> -->
+
+                        <table class="table table-bordered table-sm" style="border-collapse: collapse;">
+                            <tbody>
+                                <tr style="height:4px; font-size: 13px;">
+                                    <td class="text-center">
+                                        <strong>Details Of Receiver (Billed To)</strong>
+                                    </td>
+                                    <td class="text-center">
+                                        <strong>Details Of Consignee (Shipped To)</strong>
+                                    </td>
+                                </tr>
+
+                            </tbody>
+                            <tbody>
+                                <tr style="height:4px; font-size: 13px;">
+                                    <!-- <tr t-foreach="o.partner_id" t-as="partner_id"> -->
+                                    <td>
+                                        <strong>
+                                            <span t-field="o.partner_id.name"/>
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.partner_id.street"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.street2"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.city"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.state_id"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.zip"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.country_id"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.l10n_in_gst_treatment"/>
+                                    </td>
+                                    <td>
+                                        <strong>
+                                            <span t-field="o.partner_id.name"/>
+                                        </strong>
+                                        <br/>
+                                        <span t-field="o.partner_id.street"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.street2"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.city"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.state_id"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.zip"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.country_id"/>
+                                        <br/>
+                                        <span t-field="o.partner_id.l10n_in_gst_treatment"/>
+                                    </td>
+                                </tr>
+
+
+
+                            </tbody>
+
+                        </table>
+
+                        <table class="table-bordered table">
+                            <thead>
+                                <tr style="height:4px; font-size: 13px;">
+                                    <th>
+                                        <strong>Sr.No.</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Description and Specifications of goods</strong>
+                                    </th>
+                                    <th>
+                                        <strong>HSN</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Batch No.</strong>
+                                    </th>
+                                    <th>
+                                        <strong>No. Of Pkg</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Contents Per Pkg</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Total Qty</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Unit</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Rate Per Unit Rs</strong>
+                                    </th>
+                                    <th>
+                                        <strong>Total</strong>
+                                    </th>
+                                </tr>
+
+
+                            </thead>
+
+                            <tbody>
+                                <t t-set="counter" t-value="0"/>
+                                <tr t-foreach="o.invoice_line_ids" t-as="line_ids" style="height:4px; font-size: 13px;">
+                                    <t t-set="counter" t-value="counter + 1"/>
+                                    <td>
+                                        <span t-esc="counter"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line_ids.product_id"/>
+                                        <span t-field="line_ids.name"/>
+                                    </td>
+                                    <td>
+
+                                    </td>
+                                    <td>
+                                    </td>
+
+                                    <td>
+
+                                        <span t-field="line_ids.quantity"/>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+
+                                        <span t-field="line_ids.quantity"/>
+                                    </td>
+                                    <td>
+                                    </td>
+                                    <td>
+                                        <span t-field="line_ids.price_unit"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line_ids.price_subtotal"/>
+                                    </td>
+
+                                </tr>
+                            </tbody>
+
+                        </table>
+                        <div class="row justify-content-end">
+                            <div class="col-4">
+
+                                <table class="table-sm table" style="text-align: right;">
+
+
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                <strong>Subtotal</strong>
+                                            </th>
+                                            <td>
+                                                <span t-field="o.amount_untaxed"/>
+                                            </td>
+                                        </tr>
+
+                                        <t t-foreach="o.amount_by_group" t-as="amount_by_group">
+                                            <tr style="">
+                                                <t t-if="len(o.line_ids.filtered(lambda line: line.tax_line_id)) in [0, 1] and o.amount_untaxed == amount_by_group[2]">
+                                                    <td>
+                                                        <span class="text-nowrap" t-esc="amount_by_group[0]"/>
+                                                    </td>
+                                                    <td class="text-right o_price_total">
+                                                        <span class="text-nowrap" t-esc="amount_by_group[3]" />
+                                                    </td>
+                                                </t>
+                                                <t t-else="">
+                                                    <td>
+                                                        <span t-esc="amount_by_group[0]"/>
+                                                        <span class="text-nowrap"> on
+                                                            <t t-esc="amount_by_group[4]"/>
+                                                        </span>
+                                                    </td>
+                                                    <td class="text-right o_price_total">
+                                                        <span class="text-nowrap" t-esc="amount_by_group[3]"/>
+                                                    </td>
+                                                </t>
+                                            </tr>
+                                        </t>
+
+                                        <tr>
+                                            <th>
+                                                <strong>Total</strong>
+                                            </th>
+                                            <td>
+                                                <span t-esc="o.currency_id.amount_to_text(o.amount_total)"/>
+                                                <span t-field="o.amount_total"/>
+                                            </td>
+                                        </tr>
+                                    </thead>
+
+                                </table>
+                            </div>
+                        </div>
+
+
+                        <div class="footer" style="position:relative;">
+                            <div class="text-center" style="color:#6CB4EE; font-size: 14px;">
+                                <i class="fa fa-phone fa-fw" role="img" aria-label="Phone" title="Phone" />
+                                <span itemprop="telephone" t-field="res_company.phone" />
+                            &amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                <i class="fa fa-envelope fa-fw" role="img" aria-label="Email" title="Email" />
+                                <span itemprop="sale_email" t-field="env.company.email" />
+                            &amp;nbsp;&amp;nbsp;&amp;nbsp;
+                                <i class="fa fa-globe" role="img" aria-label="Website" title="Website" />
+                                <span itemprop="website" t-field="env.company.website" />
+                            </div>
+
+                            <div class="row text-center" style="border-top: 1px solid black; padding-top: 8px;">
+                                <div style="float: center; width: 25%;">
+                                    <img src="/pratice/static/src/img/lubeco_320x149.jpg" height="70" width="150" style="margin:0px;padding-top:0px;" />
+                                </div>
+                                <div style="float: center; width: 25%;">
+                                    <img class="img img-responsive" src="/pratice/static/src/img/fluidmate_320x149.png" height="70" width="150" style="margin:0px;padding-top:0px;" />
+                                </div>
+                                <div style="float: center; width: 25%;">
+                                    <img class="img img-responsive" src="/pratice/static/src/img/supergen_320x149.jpg" height="70" width="150" style="margin:0px;padding-top:0px;" />
+                                </div>
+                                <div style="float: center; width: 25%;">
+                                    <img class="img img-responsive" src="/pratice/static/src/img/safekar_320x149.jpg" height="70" width="150" style="margin:0px;padding-top:0px;" />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </t>
+
+            </t>
+        </t>
+    </template>
+</odoo>

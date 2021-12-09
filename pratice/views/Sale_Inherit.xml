@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="Sale_order_view_list_inherit_custom" model="ir.ui.view">
+        <field name="name">sale.order_costom</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <field name='partner_id'  position="after">
+                <field name='gmail' string='Email'/>
+            </field>
+            <xpath expr="/form/sheet/notebook" position="inside">
+                <page string="page Name">
+                    <!-- <field name="Order filed name"/> -->
+                </page>
+           </xpath> 
+           <xpath expr="/form/sheet/notebook/page[@name= 'other_information']/group/group[@name='sales_person']/field[@name='require_payment']" position='attributes'>
+               <attribute name="attrs">{'invisible':1}</attribute>
+           </xpath>
+        </field>
+    </record>
+</odoo>

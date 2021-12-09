@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="practice_sale_wizard_view" model="ir.ui.view">
+        <field name="name">create.practice.sale.wizard</field>
+        <field name="model">practice.sale.wizard</field>
+        <!-- <field name="inherit_id" ref="sale.view_quotation_tree_with_onboarding"/> -->
+        <field name="arch" type="xml">
+            <form>
+            <group>
+                <group>
+                    <field name="start_date"/>
+                </group>
+                <group>
+                    <field name="end_date"/>
+                </group>
+            </group>
+                <footer>
+                    <button name="button_fun" string="Print" type="object" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_practice_sale_wizard_view" model="ir.actions.act_window">
+        <field name="name">Create Practice Sale Wizard Report</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">practice.sale.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="pratice.practice_sale_wizard_view"/>
+        <field name="target">new</field>
+    </record>
+
+    
+    <!-- <menuitem id="menu_practice_wizard"
+                name="Practice Menu"
+                action="action_practice_sale_wizard_view"
+                parent="electronics_comm_root"
+                sequence="2"/> -->
+    <menuitem id="menu_sale_summary" name="Raw Material sale Summary Report" parent="sale.menu_sale_report" action="pratice.action_practice_sale_wizard_view" sequence="150"/>
+</odoo>

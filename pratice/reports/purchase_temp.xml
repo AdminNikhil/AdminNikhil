@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+    <template id="action_purchase_order">
+      <t t-call="web.html_container">
+        <t t-foreach="docs" t-as="o">
+         <div class="article o_report_layout_standard" t-att-data-oe-model="o and o._name" t-att-data-oe-id="o and o.id">
+           <t t-call="pratice.custom_header_footer_temp">
+               <div class="page">
+                  <!-- <div class="oe_structure"/>          -->
+                   <h2>Purchase Order</h2>
+                    Vendor : <span t-field="o.partner_id"/>
+                    <!-- <t t-if="o.line_ids"> -->
+                    <table class="table table-condensed">
+                            <thead>
+                                <tr>
+                                    <!-- <th><strong>SR. NO.</strong></th> -->
+                                    <th><strong>Product</strong></th>
+                                    <th><strong>Item Description</strong></th>
+                                    <th><strong>Delivery Date</strong></th>
+                                    <th><strong>Quantity</strong></th>
+                                    <th><strong>Unit Price</strong></th>
+                                    <th><strong>Total</strong></th>
+                                 </tr>
+                            </thead>
+                            <tbody> 
+                                <tr t-foreach="o.order_line" t-as="line_ids">
+                                    <td>
+                                        <span t-field="line_ids.product_id"/>
+                                        
+                                    </td>
+                                    <td>
+                                        <span t-field="line_ids.name"/>
+                                    </td>
+                                     <td>
+                                        <span t-field="line_ids.date_planned"/>
+                                    </td>
+                                    <td>
+                                        <!-- <span t-esc="'%.2f'% line_ids.product_qty"/> -->
+                                        <span t-field="line_ids.product_qty"/>
+                                    </td>
+                                   
+                                    <td>
+                                        <span t-field="line_ids.price_unit"/>
+                                    </td>
+                                    <td>
+                                        <span t-field="line_ids.price_subtotal"/>
+                                    </td>
+                                    
+                                </tr>
+                            </tbody>                              
+                    </table>
+                    <div class="col-4">
+                    <!-- <table style="position:absolute;top:100mm;right:35mm;"> -->
+                    <table class="table-sm table">
+                    <!-- <table style="text-align: right; width: 1020px;"> -->
+                    <!-- <table style="text-align: left; width: 720px;" border="0" cellpadding="0" cellspacing="0" padding="0" margin="0"> -->
+                      <thead>
+                        <tr>
+                            <th><strong>Untaxed Amount </strong></th>
+                            <td><span t-field="o.amount_untaxed"/></td>
+                        </tr>
+                        <tr>
+                            <th><strong>Taxes</strong></th>
+                            <td><span t-field="o.amount_tax"/></td>
+                        </tr>
+                        <tr>
+                            <th><strong>Total</strong></th>
+                            <td><span t-field="o.amount_total"/></td>
+                        </tr>
+                      </thead>
+                        
+                    </table>
+                    </div>
+                    <!-- </t> -->
+                    <!-- Untaxed Amount :<span t-field="o.amount_untaxed"/>
+                    Taxes :<span t-field="o.amount_tax"/>
+                    Total : <span t-field="o.amount_total"/> -->
+               </div>
+           </t>
+          </div>
+        </t>
+      </t>
+    </template>
+    </data>
+</odoo>

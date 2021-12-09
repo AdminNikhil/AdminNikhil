@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <template id="custom_header_footer_temp">
+        <div class="header">
+            <div class="row" style="font-family: 'Trebuchet MS', sams-serif;">
+                <!-- <div class="col-5 mb4">
+
+                </div> -->
+                <!-- <div class="col-2 mb4">
+
+                </div> -->
+                <div class="col-5 mb4 text-right">
+                    <div t-if="report_type == 'pdf'" class="text-muted">
+                        Page:<li class="list-unline-item"><strong><span class="page"/>/<span class="topage"/></strong></li>
+
+                    </div>
+                    <!-- <div>
+                        Print date: <span t-esc="context_timestemp(datetime.datetime.now()).strftime('%y-%m-%d %H:%M')"/>
+
+                    </div> -->
+                    <div class="col-12"> 
+                        <dic style="border-bottom 1px solid black;"/>
+                    </div>
+
+                </div>
+
+            </div>
+            
+        </div>
+
+    
+    </template>
+</odoo>
